@@ -5,7 +5,7 @@ Arduino Library for Non Blocking Timers
 
 Start by Initializing a globally scoped array of timers. by default, MAX_TIMERS = 32.
 
-non_blocking_timer test_timer_array[non_blocking_timer::MAX_TIMERS];
+    non_blocking_timer test_timer_array[non_blocking_timer::MAX_TIMERS];
 
 If you would like to use less, you may change the value of MAX_TIMERS manually before initializing this line.
 
@@ -30,6 +30,7 @@ void loop() {
 **Function references:**
 
 void init_digitalWrite_timer(non_blocking_timer timer_array[], unsigned int _end_after, uint32_t _ulPin, uint32_t _ulVal);
+
 Sets up a non-blocking timer to toggle a digital pin after _end_after
 
 - non_blocking_timer timer_array[]: Timer Object (see above)
@@ -39,6 +40,7 @@ Sets up a non-blocking timer to toggle a digital pin after _end_after
 
 
 void init_digitalWrite_oscillator(non_blocking_timer timer_array[], unsigned int _cycle_duration, uint32_t _ulPin, uint32_t _start_ulVal);
+
 Like init_digitalWrite_timer, except it will oscillate
 
 - non_blocking_timer timer_array[]: Timer Object (see above)
@@ -47,6 +49,7 @@ Like init_digitalWrite_timer, except it will oscillate
 - uint32_t _start_ulVal: You can set your starting value from the start of the oscillation. E.g LOW This will cause the oscillation to set the pin to this value from the first cycle onwards, and this does nothing to change the default Arduino behaviour of starting pin values, so if you find this doesn't work for you, then you may wish to add in your own digitalWrite before hand. 
 
 void init_function_timer(non_blocking_timer timer_array[], unsigned int _end_after, callback_function event_callback, bool _repeating);
+
 Set up a timer to call a function when the timer expires. At the moment can only be used with functions with a void return type.
 
 - non_blocking_timer timer_array[]: Timer Object (see above)
