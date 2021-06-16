@@ -1,8 +1,7 @@
 # non_blocking_timers
 Arduino Library for Non Blocking Timers
 
-**Usage:
-**
+**Usage:**
 
 Start by Initializing a globally scoped array of timers. by default, MAX_TIMERS = 32.
 
