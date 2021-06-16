@@ -1,8 +1,8 @@
 # non_blocking_timers
 Arduino Library for Non Blocking Timers
 
-Usage:
-
+**Usage:
+**
 Start by Initializing a globally scoped array of timers. by default, MAX_TIMERS = 32.
 
 non_blocking_timer test_timer_array[non_blocking_timer::MAX_TIMERS];
@@ -11,8 +11,8 @@ If you would like to use less, you may change the value of MAX_TIMERS manually b
 
 From there, see example
 
-Example:
-
+**Example:
+**
 void setup() {
     Serial.begin(9600);
     Serial.println("Program Started, Initializing timers");
@@ -27,8 +27,8 @@ void loop() {
     update_timers(test_timer_array); // this line must be at the end of each loop to update the timers
 }
 
-Function references:
-
+**Function references:
+**
 void init_digitalWrite_timer(non_blocking_timer timer_array[], unsigned int _end_after, uint32_t _ulPin, uint32_t _ulVal);
 Sets up a non-blocking timer to toggle a digital pin after _end_after
 
