@@ -11,8 +11,7 @@ If you would like to use less, you may change the value of MAX_TIMERS manually b
 
 From there, see example
 
-**Example:
-**
+**Example:**
 
 void setup() {
     Serial.begin(9600);
@@ -28,8 +27,7 @@ void loop() {
     update_timers(test_timer_array); // this line must be at the end of each loop to update the timers
 }
 
-**Function references:
-**
+**Function references:**
 
 void init_digitalWrite_timer(non_blocking_timer timer_array[], unsigned int _end_after, uint32_t _ulPin, uint32_t _ulVal);
 Sets up a non-blocking timer to toggle a digital pin after _end_after
