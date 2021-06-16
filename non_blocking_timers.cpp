@@ -1,16 +1,14 @@
 #include "non_blocking_timers.h"
 
-uint8_t non_blocking_timer::timer_index = 0;
+non_blocking_timer *get_last_timer_in_list(non_blocking_timer *timer_ptr) {
+    non_blocking_timer *last_timer_in_list = timer_ptr->first_timer_in_list; 
 
-int scan_for_available_timers(non_blocking_timer timer_array[]) {
-    // returns the index of the first available timer in the timer array
-    for (uint8_t i = 0; i < non_blocking_timer::MAX_TIMERS; i++) {
-        if (timer_array[i].finished == true) {
-            return i;
-        } 
+    while (last_timer_in_list->next_timer_in_list != nullptr) {
+        last_timer_in_list = last_timer_in_list->next_timer_in_list;
     }
-    return -1;     // if we find nothing, return a -1 signifying no timers are availalble.
+    return last_timer_in_list;
 }
+
 
 void add_new_timer(non_blocking_timer *timer_array, unsigned int _end_after, bool _repeating) {
     int first_available = scan_for_available_timers(timer_array);
