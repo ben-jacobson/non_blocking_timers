@@ -17,7 +17,7 @@ void setup() {
     Serial.begin(9600);
     Serial.println("Program Started, Initializing timers");
 
-    init_digitalWrite_timer(test_timer_array, 50, 3, HIGH); // after 50ms, set D3 to HIGH
+    init_digitalWrite_timer(test_timer_array, 50, 3, HIGH); // after 50ms, set pin 3 to HIGH
     init_digitalWrite_oscillator(test_timer_array, 250, LED_BUILTIN, HIGH); // Oscillate D4 with 5ms period, setting the pin HIGH on the first cycle
     init_function_timer(test_timer_array, 1000, my_test_func, true);    // call the my_test_func() every 1000ms.
 }
@@ -35,7 +35,7 @@ Sets up a non-blocking timer to toggle a digital pin after _end_after
 
 - non_blocking_timer timer_array[]: Timer Object (see above)
 - unsigned int _end_after: How long before the digitalWrite is triggered
-- uint32_t _ulPin: The pin you wish to toggle. E.g D13
+- uint32_t _ulPin: The pin you wish to toggle. E.g digital pin 13
 - uint32_t _ulVal: The value you wish to write, E.g HIGH
 
 
@@ -45,7 +45,7 @@ Like init_digitalWrite_timer, except it will oscillate
 
 - non_blocking_timer timer_array[]: Timer Object (see above)
 - unsigned int _cycle_duration: The period of the oscillator. E.g if set to 50ms, the pin will be set HIGH for 50ms, then LOW for 50ms
-- uint32_t _ulPin: The pin you wish to oscillate. E.g D4
+- uint32_t _ulPin: The pin you wish to oscillate. E.g digital pin 4
 - uint32_t _start_ulVal: You can set your starting value from the start of the oscillation. E.g LOW This will cause the oscillation to set the pin to this value from the first cycle onwards, and this does nothing to change the default Arduino behaviour of starting pin values, so if you find this doesn't work for you, then you may wish to add in your own digitalWrite before hand. 
 
 void init_function_timer(non_blocking_timer timer_array[], unsigned int _end_after, callback_function event_callback, bool _repeating);
