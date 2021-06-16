@@ -22,6 +22,4 @@ void init_digitalWrite_oscillator(non_blocking_timer timer_array[], unsigned int
 void init_function_timer(non_blocking_timer timer_array[], unsigned int _end_after, callback_function event_callback, bool _repeating);
 void update_timers(non_blocking_timer timer_array[]);
 
-void nothing();
-
 #endif
