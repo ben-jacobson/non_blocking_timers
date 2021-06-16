@@ -1,4 +1,3 @@
-
 #include <Arduino.h>
 #include <non_blocking_timers.h>
 
@@ -13,9 +12,9 @@ void setup() {
     Serial.begin(9600);
     Serial.println("Program Started, Initializing timers");
 
-    init_digitalWrite_timer(test_timer_array, 50, D3, HIGH); // after 50ms, set D3 to HIGH
-    init_digitalWrite_oscillator(test_timer_array, 5, D4, HIGH); // Oscillate D4 with 5ms period, setting the pin HIGH on the first cycle
-    init_function_timer(test_timer_array, 1000, my_test_func, true);    // call the my_test_func() every 1000ms.
+	init_digitalWrite_timer(test_timer_array, 50, 3, HIGH); // after 50ms, set pin 3 to HIGH
+	init_digitalWrite_oscillator(test_timer_array, 250, LED_BUILTIN, HIGH); // Oscillate D4 with 5ms period, setting the pin HIGH on the first cycle
+	init_function_timer(test_timer_array, 1000, my_test_func, true);    // call the my_test_func() every 1000ms.
 }
 
 void loop() {
