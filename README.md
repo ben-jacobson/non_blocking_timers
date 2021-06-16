@@ -3,6 +3,7 @@ Arduino Library for Non Blocking Timers
 
 **Usage:
 **
+
 Start by Initializing a globally scoped array of timers. by default, MAX_TIMERS = 32.
 
 non_blocking_timer test_timer_array[non_blocking_timer::MAX_TIMERS];
@@ -13,13 +14,14 @@ From there, see example
 
 **Example:
 **
+
 void setup() {
     Serial.begin(9600);
     Serial.println("Program Started, Initializing timers");
 
-    init_digitalWrite_timer(test_timer_array, 50, D3, HIGH); // after 50ms, set D3 to HIGH
-    init_digitalWrite_oscillator(test_timer_array, 5, D4, HIGH); // Oscillate D4 with 5ms period, setting the pin HIGH on the first cycle
-    init_function_timer(test_timer_array, 1000, my_test_func, true);    // call the my_test_func() every 1000ms. Remove true to set up a one-shot timer.
+    init_digitalWrite_timer(test_timer_array, 50, 3, HIGH); // after 50ms, set D3 to HIGH
+    init_digitalWrite_oscillator(test_timer_array, 250, LED_BUILTIN, HIGH); // Oscillate D4 with 5ms period, setting the pin HIGH on the first cycle
+    init_function_timer(test_timer_array, 1000, my_test_func, true);    // call the my_test_func() every 1000ms.
 }
 
 void loop() {
@@ -29,6 +31,7 @@ void loop() {
 
 **Function references:
 **
+
 void init_digitalWrite_timer(non_blocking_timer timer_array[], unsigned int _end_after, uint32_t _ulPin, uint32_t _ulVal);
 Sets up a non-blocking timer to toggle a digital pin after _end_after
 
