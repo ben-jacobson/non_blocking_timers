@@ -61,7 +61,7 @@ void loop() {
 
 **Function references:**
 
-void init_digitalWrite_timer(non_blocking_timer *non_blocking_timer_ptr, unsigned int _end_after, uint8_t _ulPin, uint8_t _ulVal);
+    void init_digitalWrite_timer(non_blocking_timer *non_blocking_timer_ptr, unsigned int _end_after, uint8_t _ulPin, uint8_t _ulVal);
 
 Sets up a non-blocking timer to toggle a digital pin after _end_after
 
@@ -71,7 +71,7 @@ Sets up a non-blocking timer to toggle a digital pin after _end_after
 - uint32_t _ulVal: The value you wish to write, E.g HIGH
 
 
-void init_digitalWrite_oscillator(non_blocking_timer *non_blocking_timer_ptr, unsigned int _cycle_duration, uint32_t _ulPin, uint32_t _start_ulVal);
+    void init_digitalWrite_oscillator(non_blocking_timer *non_blocking_timer_ptr, unsigned int _cycle_duration, uint32_t _ulPin, uint32_t _start_ulVal);
 
 Like init_digitalWrite_timer, except it will oscillate
 
@@ -81,7 +81,7 @@ Like init_digitalWrite_timer, except it will oscillate
 - uint32_t _start_ulVal: You can set your starting value from the start of the oscillation. E.g LOW This will cause the oscillation to set the pin to this value from the first cycle onwards, and this does nothing to change the default Arduino behaviour of starting pin values, so if you find this doesn't work for you, then you may wish to add in your own digitalWrite before hand. 
 
 
-void init_function_timer(non_blocking_timer *non_blocking_timer_ptr, unsigned int _end_after, callback_function event_callback, bool _repeating = false);
+    void init_function_timer(non_blocking_timer *non_blocking_timer_ptr, unsigned int _end_after, callback_function event_callback, bool _repeating = false);
 
 Set up a timer to call a function when the timer expires. At the moment can only be used with functions with a void return type.
 
@@ -91,5 +91,6 @@ Set up a timer to call a function when the timer expires. At the moment can only
 - bool _repeating: If you would like this to repeat every _end_after ms, set this to True
 
 
-void update_timers(void);
+    void update_timers(void);
+    
 call this function at the end of your loop() function, this updates the timers and keeps everything in sync
