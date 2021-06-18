@@ -1,5 +1,5 @@
 # non_blocking_timers
-Arduino Library for Non Blocking Timers
+Arduino Library for Non Blocking Timers - Ben Jacobson 2021
 
 **Usage:**
 
