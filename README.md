@@ -18,27 +18,27 @@ From there, see example
 
 **Example:**
 
-void my_func(void) {
-    Serial.println("Test");
-}
+    void my_func(void) {
+        Serial.println("Test");
+    }
 
-void setup() {
-    Serial.begin(9600);
-    Serial.println("Program Started, Initializing timers");
+    void setup() {
+        Serial.begin(9600);
+        Serial.println("Program Started, Initializing timers");
 
-    my_oscillator_timer = new non_blocking_timer; // for storage on heap, you could even store an array of them on the heap
+        my_oscillator_timer = new non_blocking_timer; // for storage on heap, you could even store an array of them on the heap
 
-    init_digitalWrite_oscillator(my_oscillator_timer, 250, LED_BUILTIN, HIGH); // Oscillate D4 with 5ms period, setting the pin HIGH on the first cycle	
-    init_digitalWrite_timer(&my_test_timer_array[0], 50, 4, HIGH);     // after 50ms take pin 4 HIGH
-    init_digitalWrite_timer(&my_test_timer_array[1], 100, 4, LOW);     // then after 100ms take pin 4 LOW
-    init_digitalWrite_timer(&my_test_timer_array[2], 150, 4, HIGH);    // after 150ms take pin 4 HIGH again
-    init_function_timer(&my_test_function_timer, 1000, my_func, true);
-}
+        init_digitalWrite_oscillator(my_oscillator_timer, 250, LED_BUILTIN, HIGH); // Oscillate D4 with 5ms period, setting the pin HIGH on the first cycle	
+        init_digitalWrite_timer(&my_test_timer_array[0], 50, 4, HIGH);     // after 50ms take pin 4 HIGH
+        init_digitalWrite_timer(&my_test_timer_array[1], 100, 4, LOW);     // then after 100ms take pin 4 LOW
+        init_digitalWrite_timer(&my_test_timer_array[2], 150, 4, HIGH);    // after 150ms take pin 4 HIGH again
+        init_function_timer(&my_test_function_timer, 1000, my_func, true);
+    }
 
-void loop() {
-    // using any delays above or below update_timers will ruin the timing of your non-blocking timers. 
-    update_timers(); // this line must be at the end of each loop to update the timers    
-}
+    void loop() {
+        // using any delays above or below update_timers will ruin the timing of your non-blocking timers. 
+        update_timers(); // this line must be at the end of each loop to update the timers    
+    }
 
 **Important Note - don't use a timer after it's been been descoped**
 
