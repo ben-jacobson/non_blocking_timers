@@ -20,7 +20,7 @@ void add_new_generic_timer(non_blocking_timer *non_blocking_timer_ptr, unsigned 
 void delete_timer(non_blocking_timer *non_blocking_timer_ptr);
 void init_digitalWrite_timer(non_blocking_timer *non_blocking_timer_ptr, unsigned int _end_after, uint8_t _ulPin, uint8_t _ulVal);
 void init_digitalWrite_oscillator(non_blocking_timer *non_blocking_timer_ptr, unsigned int _cycle_duration, uint32_t _ulPin, uint32_t _start_ulVal);
-void init_function_timer(non_blocking_timer *non_blocking_timer_ptr, unsigned int _end_after, callback_function event_callback, bool _repeating);
+void init_function_timer(non_blocking_timer *non_blocking_timer_ptr, unsigned int _end_after, callback_function event_callback, bool _repeating = false);
 void update_timers(void);
 
 #endif
