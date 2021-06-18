@@ -47,16 +47,16 @@ void loop() {
     void this_function_crashes(void) {
         non_blocking_timer reset_pin_timer;
         init_digitalWrite_timer(&reset_pin_timer, 40, 3, HIGH); 
-        //  when this function finishes, the reset_pin_timer will be de-scoped (and popped off the stack). This breaks every timer and could even lock up the rest of your                      program. 
+        //  when this function finishes, the reset_pin_timer will be de-scoped (and popped off the stack). This breaks every timer and could even lock up the rest of your       program. 
         //  You must ensure that your non_blocking_timer objects are in scope at least long enough for the timer to finish and be tidied up by the back end code. 
     }
     void workarounds_to_this_problem(void) {
         //  Best practice is to declare these outside of the scope of the function (e.g a class member, or a global) so that you have that memory put aside for all future uses.  
         //  Alternatively, you can do one of the following:
         non_blocking_timer *heap_reset_pin_timer; 
-        heap_reset_pin_timer = new non_blocking_timer;      // store the object in heap memory. The pointer itself will be de-scoped but the object wont. Just remember to delete                                                                   the object when you no longer need it
+        heap_reset_pin_timer = new non_blocking_timer;      // store the object in heap memory. The pointer itself will be de-scoped but the object wont. Just remember to delete the object when you no longer need it
 
-        static non_blocking_timer static_reset_pin_timer;     // or alternatively declare the variable static. This is ideal when you have a function that continually re-sets a                                                                    timer
+        static non_blocking_timer static_reset_pin_timer;     // or alternatively declare the variable static. This is ideal when you have a function that continually re-sets a timer
     }
 
 **Function references:**
